@@ -16802,7 +16802,10 @@ function sheet_to_json(sheet, opts){
 				if(hdr[C] != null) { row[hdr[C]] = defval; isempty = false; }
 				continue;
 			}
-			v = val.v;
+			if(val.w){
+				val.v=(val.v !=	val.w)?val.w:val.v
+				}
+				v = val.v;
 			switch(val.t){
 				case 'n': {
 					if(val.f=="TRUE()") {
